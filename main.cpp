@@ -17,6 +17,10 @@
 #include "geometrymaker.h"
 #include "tiny_obj_loader.h"
 
+//#include "stdafx.h"
+
+
+
 using namespace std;
 
 GLuint program;
@@ -62,7 +66,7 @@ struct VertexPN {
 
 	VertexPN& operator = (const GenericVertex& v) {
 		p = v.pos;
-		n = v.normal;
+		//n = v.normal;
 		t = v.tex;
 		return *this;
 	}
@@ -291,7 +295,7 @@ void loadObjFile(const std::string &fileName, std::vector<VertexPN> &outVertices
 			for (int j = 0; j < shapes[i].mesh.indices.size(); j++) {
 
 				unsigned int vertexOffset = shapes[i].mesh.indices[j].vertex_index * 3;
-				unsigned int normalOffset = shapes[i].mesh.indices[j].normal_index * 3;
+				//unsigned int normalOffset = shapes[i].mesh.indices[j].normal_index * 3;
 				unsigned int textOffset = shapes[i].mesh.indices[j].texcoord_index * 2;
 				VertexPN v;
 				v.p[0] = attrib.vertices[vertexOffset];
@@ -301,9 +305,9 @@ void loadObjFile(const std::string &fileName, std::vector<VertexPN> &outVertices
 				v.t[0] = attrib.texcoords[textOffset];
 				v.t[1] = 1.0 - attrib.texcoords[textOffset + 1];
 
-				v.n[0] = attrib.normals[normalOffset];
-				v.n[1] = attrib.normals[normalOffset + 1];
-				v.n[2] = attrib.normals[normalOffset + 2];
+				//v.n[0] = attrib.normals[normalOffset];
+				//v.n[1] = attrib.normals[normalOffset + 1];
+				//v.n[2] = attrib.normals[normalOffset + 2];
 				
 				outVertices.push_back(v);
 				outIndices.push_back(vtx.size() - 1);
@@ -378,7 +382,7 @@ void display(void) {
 	Matrix4 eyeInverse = inv(eyeMatrix);
 
 
-/*
+	/*
 	Cvec3 tr = { 0.0, -8.0, 0.0 };
 	Cvec3 ro = { 0.0, 45.0 * t1, 0.0 };
 	Cvec3 sc = { 1.0, 1.0, 1.0 };
@@ -390,12 +394,12 @@ void display(void) {
 	*/
 
 
-	Cvec3 tr = { 0.0, -5.0, 0.0 };
+	Cvec3 tr = { 0.0, 0.0, 0.0 };
 	Cvec3 ro = { 0.0, 45.0 * t1, 0.0 };
-	Cvec3 sc = { 1.0, 1.0, 1.0 };
+	Cvec3 sc = { 0.05, 0.05, 0.05 };
 	Entity Obj1(tr, ro, sc);
 	Obj1.parent = NULL;
-	Obj1.geometry.numIndices = 30152;
+	Obj1.geometry.numIndices = 117707;
 	make3DObject();
 	Obj1.Draw(eyeInverse, projectionMatrix, positionAttribute, normalAttribute, modelViewMatrixUniformLocation, normalMatrixUniformLocation);
 
@@ -434,8 +438,8 @@ void init() {
 	diffuseTextureUniformLocation = glGetUniformLocation(program, "diffuseTexture");
 	diffuseTexture = loadGLTexture("Monk_Giveaway/Monk_D.tga");
 	
-	specularTextureUniformLocation = glGetUniformLocation(program, "specularTexture");
-	specularTexture = loadGLTexture("Monk_Giveaway/Monk_S.tga");
+//	specularTextureUniformLocation = glGetUniformLocation(program, "specularTexture");
+//	specularTexture = loadGLTexture("Monk_Giveaway/Monk_S.tga");
 
 	lightColor[0] = glGetUniformLocation(program, "lights[0].lightColor");
 	lightDirection[0] = glGetUniformLocation(program, "lights[0].lightPosition");
@@ -460,7 +464,7 @@ void init() {
 
 
 
-	loadObjFile("Monk_Giveaway/Monk_Giveaway_Fixed.obj", vtx, idx);
+	loadObjFile("Vatsal_Coin_Obj.obj", vtx, idx);
 
 	
 //	glUniform1i(diffuseTextureUniformLocation, 0);
