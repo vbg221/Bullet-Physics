@@ -43,10 +43,28 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Vertex.glsl">
+    <None Include="fragment2.glsl">
       <Filter>Resource Files\Shader Files</Filter>
     </None>
-    <None Include="Fragment.glsl">
+    <None Include="vertex2.glsl">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="fragment.glsl">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="vertex.glsl">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="vertex3.glsl">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="fragment3.glsl">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="fragment4.glsl">
+      <Filter>Resource Files\Shader Files</Filter>
+    </None>
+    <None Include="vertex4.glsl">
       <Filter>Resource Files\Shader Files</Filter>
     </None>
   </ItemGroup>
