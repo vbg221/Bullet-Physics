@@ -98,14 +98,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="fragment.glsl" />
-    <None Include="fragment2.glsl" />
-    <None Include="fragment3.glsl" />
-    <None Include="fragment4.glsl" />
-    <None Include="vertex.glsl" />
-    <None Include="vertex2.glsl" />
-    <None Include="vertex3.glsl" />
-    <None Include="vertex4.glsl" />
+    <None Include="Fragment.glsl" />
+    <None Include="Vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
